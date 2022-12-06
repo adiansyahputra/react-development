@@ -11,9 +11,7 @@ const AvailableMeals = () => {
 
   useEffect(() => {
     const fetchMeals = async () => {
-      const response = await fetch(
-        'https://react-http-6b4a6.firebaseio.com/meals.json'
-      );
+      const response = await fetch('https://react-http-b95f2-default-rtdb.asia-southeast1.firebasedatabase.app/meals.json');
 
       if (!response.ok) {
         throw new Error('Something went wrong!');
@@ -58,15 +56,7 @@ const AvailableMeals = () => {
     );
   }
 
-  const mealsList = meals.map((meal) => (
-    <MealItem
-      key={meal.id}
-      id={meal.id}
-      name={meal.name}
-      description={meal.description}
-      price={meal.price}
-    />
-  ));
+  const mealsList = meals.map((meal) => <MealItem key={meal.id} id={meal.id} name={meal.name} description={meal.description} price={meal.price} />);
 
   return (
     <section className={classes.meals}>
